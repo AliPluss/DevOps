@@ -1,26 +1,28 @@
 /*server.js is the entry point of the application.
  It sets up the Express server, configures middleware, and defines routes.
 */
-const express = require('express');
-const path = require('path');
 
-// Create an instance of the Express application
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-//static files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.static(path.join(__dirname,'..' ,'public')));
 
-//view engine setup
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-//routes
 app.get('/', (req, res) => {
-    res.send('express server is running');
+    res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
-// Start the server
+
 app.listen(PORT, () => {
     console.log(`Server is running on port http://localhost:${PORT}`);
 });
+
+
+
