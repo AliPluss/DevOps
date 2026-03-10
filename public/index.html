@@ -9,12 +9,30 @@
 </head>
 
 <body>
-    <div id="loginn">
-        <h1>skriv inn brukernavn og passord</h1>
+
+      <div id="Registrering">
+        <h1>Registrering</h1>
+        <h3>skriv inn brukernavn og passord</h1>
         <input id="brukernavn" type=" text" placeholder="brukernavn">
         <input id="passord" type="password" placeholder="passord">
 
+        <p id="regStatus"></p>
+
+        <button onclick="registrer()">Registrer</button>
+
+    </div>
+
+    <div id="loginn">
+        <h1>Logg inn</h1>
+        <h3>skriv inn brukernavn </h1>
+        <input id="brukernavn" type=" text" placeholder="brukernavn">
+        <h3>skriv inn passord</h1>
+        <input id="passord" type="password" placeholder="passord">
+
+        <p id="loggStatus"></p>
+
         <button onclick="autentisering()">Logg inn</button>
+
     </div>
 
    
