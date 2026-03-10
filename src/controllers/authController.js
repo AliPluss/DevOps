@@ -2,6 +2,7 @@
 import { registererBrukere } from "../models/authModels.js";
 import { logginnBrukere } from "../models/authModels.js";
 import { hashThePassword } from "../services/authService.js";
+import { checkHashedPassword } from "../services/authService.js";
 
 
 //export av dat fra login
@@ -9,7 +10,7 @@ export async function register(req, res) {
     //henter data fra body i frontend og legger i variabler brukernavn og passord
     const { brukernavn, passord } = req.body; // body fra frontend
     console.log("authController bruknavn", brukernavn);
-    console.log("authController passord", passord);
+    console.log("authController regpassord", passord);
 
     //validering av data hashing av passord
     const hashPassord = await hashThePassword(passord);
@@ -42,13 +43,20 @@ export async function login(req, res) {
     const { loggbrukernavn, loggpassord } = req.body; // body fra frontend
     console.log("authController bruknavn", loggbrukernavn);
     console.log("authController passord", loggpassord);
+    
+
 
     // validering av data brukernavn og passord
     const { data: loggBrukere } = await logginnBrukere(loggbrukernavn, loggpassord);
     console.log("authController test levering av database", loggBrukere);
 
+    //hvis loggBrukere er false, logg melding og returner error
+    const sjekketPassord = await checkHashedPassword(loggpassord,loggBrukere.passord);
+    console.log("authController sjekketPassord", sjekketPassord);
+    
+
     //hvis loggBrukere er true, returner success, ellers returner error
-    if (loggBrukere) {
+    if (sjekketPassord.success === true) {
 
         console.log("authController login : innlogging vellykket");
         // returner success til frontend

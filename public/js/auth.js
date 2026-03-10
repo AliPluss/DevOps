@@ -49,11 +49,13 @@ async function registrer() {
 //funksjon loginn
 async function autentisering() {
     //henter data fra input i frontend og legger i variabler brukernavn og passord
-    const loggbrukernavn = document.getElementById("brukernavn").value;
-    const loggpassord = document.getElementById("passord").value;
+    const loggbrukernavn = document.getElementById("loggbrukernavn").value;
+    const loggpassord = document.getElementById("loggpassord").value;
     const loggStatusMsg = document.getElementById("loggStatus");
 
-    console.log(loggbrukernavn);
+    console.log(loggbrukernavn, loggpassord);
+    console.log("loggbrukernavn", loggbrukernavn);
+    console.log("loggpassord", loggpassord);
     //validering av data, hvis brukernavn eller passord er tomt, logg melding og returner
     if (!loggbrukernavn || !loggpassord) {
         console.log(" brukernavn og / eller passord ikke skrevet inn");

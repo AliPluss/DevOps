@@ -1,6 +1,7 @@
 
 // importerer nødvendige moduler og filer
 import bcrypt from "bcryptjs";
+import e from "express";
 
 //funksjon for å hashe passord, tar inn regPassord som parameter, returnerer hashPassord
 export async function hashThePassword(regPassord) {
@@ -12,4 +13,17 @@ export async function hashThePassword(regPassord) {
     console.log("hashService hashThePassword error", error);
     throw new Error("Feil ved hashing av passord");
  }
+}
+
+export async function checkHashedPassword(loggPassord,loggBrukerePassord) {
+
+    const validerPassord = await bcrypt.compare(loggPassord, loggBrukerePassord);
+
+    if (!validerPassord) {
+        return { success: false };
+    }   
+    else {
+        return { success: true };
+    }
+    
 }
