@@ -3,6 +3,7 @@ import { registererBrukere } from "../models/authModels.js";
 import { logginnBrukere } from "../models/authModels.js";
 import { hashThePassword } from "../services/authService.js";
 
+
 //export av dat fra login
 export async function register(req, res) {
     //henter data fra body i frontend og legger i variabler brukernavn og passord
@@ -41,7 +42,7 @@ export async function login(req, res) {
     const { loggbrukernavn, loggpassord } = req.body; // body fra frontend
     console.log("authController bruknavn", loggbrukernavn);
     console.log("authController passord", loggpassord);
-     
+
     // validering av data brukernavn og passord
     const { data: loggBrukere } = await logginnBrukere(loggbrukernavn, loggpassord);
     console.log("authController test levering av database", loggBrukere);
