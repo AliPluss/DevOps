@@ -9,34 +9,38 @@
 </head>
 
 <body>
+    <!-- <h1>Velkommen til hjemmesiden vår!</h1> -->
+    <div class="contaner">
+        <ul>
+            <li><a href="/start">hjemmeside</a></li>
+            <li><a href="/maskiner">Maskiner</a></li>
+            <li><a href="/v">Værmelding</a></li>
+        </ul>
 
-      <div id="Registrering">
-        <h1>Registrering</h1>
-        <h3>skriv inn brukernavn og passord</h1>
-        <input id="brukernavn" type=" text" placeholder="brukernavn">
-        <input id="passord" type="password" placeholder="passord">
+    <!--cards -->
+        <div class="cards-row">
+            <!---registrering funksjon--->
+            <div id="Registrering">
+                <h1>Registrering</h1>
+                <h3>skriv inn brukernavn og passord</h3>
+                <input id="brukernavn" type="text" placeholder="brukernavn">
+                <input id="passord" type="password" placeholder="passord">
+                <p id="regStatus"></p>
+                <button onclick="registrer()">Registrer</button>
+            </div>
 
-        <p id="regStatus"></p>
+            <div id="loginn">
+                <h1>Logg inn</h1>
+                <h3>skriv inn brukernavn</h3>
+                <input id="loggbrukernavn" type="text" placeholder="brukernavn">
+                <h3>skriv inn passord</h3>
+                <input id="loggpassord" type="password" placeholder="passord">
+                <p id="loggStatus"></p>
+                <button onclick="autentisering()">Logg inn</button>
+            </div>
 
-        <button onclick="registrer()">Registrer</button>
-
+        </div>
     </div>
-
-    <div id="loginn">
-        <h1>Logg inn</h1>
-        <h3>skriv inn brukernavn </h1>
-        <input id="loggbrukernavn" type=" text" placeholder="brukernavn">
-        <h3>skriv inn passord</h1>
-        <input id="loggpassord" type="password" placeholder="passord">
-
-        <p id="loggStatus"></p>
-
-        <button onclick="autentisering()">Logg inn</button>
-
-    </div>
-
-   
-
     <script src="js/auth.js"></script>
 
 </body>

@@ -6,22 +6,52 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* background */
+/* الخلفية */
 body{
-    height:100vh;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:40px;
     background:linear-gradient(135deg,#1d2671,#c33764);
+    margin: 0;
 }
 
-/* inbox*/
+/* الحاوية الرئيسية - الاسم كما هو في ملفك */
+.contaner {
+    display: flex;
+    flex-direction: column; /* القائمة فوق، والكروت تحتها */
+    align-items: center;
+    gap: 30px;
+}
+
+/* القائمة */
+ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* لجعل الكروت (الرجيستر واللوجن) بجانب بعضها */
+/* سنحتاج لإضافة div صغير في الـ HTML يجمع الكرتين فقط */
+.cards-row {
+    display: flex;
+    flex-direction: row; /* هذا هو السر ليصبحوا بجانب بعض */
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* تنسيق الكروت كما هو في كودك الأصلي */
 #Registrering,
 #loginn{
     background:white;
     padding:30px;
-    width:320px;
+    width:280px;
     border-radius:12px;
     box-shadow:0 10px 25px rgba(0,0,0,0.25);
     display:flex;
@@ -29,49 +59,22 @@ body{
     gap:12px;
 }
 
-/* addrisen*/
-#Registrering h1,
-#loginn h1{
-    font-size:18px;
-    text-align:center;
-    color:#333;
-    margin-bottom:10px;
+/* تنسيق المدخلات والأزرار */
+input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
-/* input */
-input{
-    padding:12px;
-    border-radius:6px;
-    border:1px solid #ccc;
-    font-size:14px;
-    transition:0.3s;
+button {
+    padding: 10px;
+    background: #1d2671;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-input:focus{
-    outline:none;
-    border-color:#1d2671;
-    box-shadow:0 0 6px rgba(29,38,113,0.3);
-}
-
-/* massage*/
-#regStatus{
-    font-size:14px;
-    color:#444;
-    text-align:center;
-}
-
-/* button */
-button{
-    padding:12px;
-    border:none;
-    border-radius:6px;
-    background:#1d2671;
-    color:white;
-    font-size:15px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-button:hover{
-    background:#c33764;
+button:hover {
+    background: #c33764;
 }
